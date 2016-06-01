@@ -38,7 +38,7 @@ def start_ifstat():
     outf = open("ifstat.txt", "w")
     try:
         logger.debug("Running ifstat...")
-        subprocess.run(["ifstat", "-ntb", "-i", INTERFACE], stdout=outf)
+        subprocess.call(["ifstat", "-ntb", "-i", INTERFACE], stdout=outf)
     except FileNotFoundError:
         logger.critical("Could not find ifstat.")
         sys.exit(1)
